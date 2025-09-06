@@ -56,25 +56,22 @@ It combines **OpenCV** + **EasyOCR** for ID detection, **MySQL** for database st
    cd id-scanning-attendance
 
 
-2.Create a virtual environment (recommended)
-
+🚀 Setup Instructions
+1️⃣ **Create a Virtual Environment (recommended)**
 python -m venv venv
-source venv/bin/activate   # Linux/Mac
-venv\Scripts\activate   
+source venv/bin/activate   # For Linux/Mac
+venv\Scripts\activate      # For Windows
 
-
-3.Install dependencies
-
+2️⃣ **Install Dependencies**
 pip install -r requirements.txt
 
+3️⃣ **Configure MySQL Database**
 
-4.Configure MySQL Database
-
-Create a database (e.g., attendance_db).
+Create a database (example: attendance_db).
 
 Run the following SQL commands:
 
--CREATE TABLE students (
+CREATE TABLE students (
     student_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     roll_number VARCHAR(20) UNIQUE NOT NULL,
@@ -82,7 +79,7 @@ Run the following SQL commands:
     year INT
 );
 
--CREATE TABLE attendance (
+CREATE TABLE attendance (
     id INT AUTO_INCREMENT PRIMARY KEY,
     student_id INT,
     date DATE DEFAULT CURDATE(),
@@ -91,31 +88,31 @@ Run the following SQL commands:
 );
 
 
--Add a .env file in your project root with your DB config:
+Add a .env file in your project root with DB config:
 
 DB_HOST=localhost
 DB_USER=your_username
 DB_PASSWORD=your_password
 DB_NAME=attendance_db
 
-
--Run the project
-
+4️⃣ **Run the Project**
 python final1.py
 
--📊 Usage
+📊 **Usage**
 
-Login with Admin credentials (ABC / Abc@123).
+Login with Admin credentials:
+Username: ABC
+Password: Abc@123
 
 Add student details.
 
 Start camera → Scan student ID (roll number).
 
-Attendance automatically updated in MySQL.
+Attendance is automatically updated in MySQL.
 
 Export full report to Excel.
 
-📌 Future Enhancements
+🔮 **Future Enhancements**
 
 Role-based login (Admin/Faculty).
 
@@ -125,5 +122,6 @@ Web dashboard for managing reports.
 
 SMS/Email notifications for absentees.
 
-📝 License
--This project is licensed under the MIT License.
+📝 **License**
+
+This project is licensed under the MIT License.
